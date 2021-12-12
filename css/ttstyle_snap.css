@@ -18,44 +18,22 @@
   clear: both;
 }
 
-/* * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+/* setup */
+html, body {
+  height: 100%;
 }
-body {
-	overflow-x: hidden;
+.snapper {
+  display: flex;
+  overflow: auto;
+  flex: none;
+  width: 100%;
+  height: 80%;
+  flex-flow: column nowrap;
+  scroll-snap-type: y mandatory;
 }
-.slider {
-	font-family: sans-serif;
-	scroll-snap-type: y mandatory;	
-	display: flex;
-  flex-direction: column;
-	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll;
+.snapper > .row {
+  scroll-snap-align: center;
+  width: 100%;
+  height: 100%;
+}
 
-  position: absolute;
-  top:0;
-  bottom:0;
-  left: 0;
-  right: 0;
-}
-section {
-	border-right: 1px solid white;
-	padding: 1rem;
-	width: 100vw;
-	min-height: 100vh; 
-	scroll-snap-align: start;
-	text-align: center;
-	position: relative;
-}
-h1	{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	text-align: center;
-	color: black;
-	width: 100%;
-	left: 0;
-	font-size: calc(1rem + 3vw);
-} */
