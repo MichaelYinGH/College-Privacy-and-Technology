@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Intro to De-Anonymization</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="css/ttstyle.css"
+<script src="https://kit.fontawesome.com/1789701f04.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/ttstyle_snap.css">
 <body>
 
 <!-- Navbar (sit on top) -->
@@ -16,19 +17,370 @@
 
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-  <img class="w3-image" src="images/unmasking.jpeg" alt="Computer" width="1500" >
+  <img class="w3-image" src="images/privacy_cover.jpeg" alt="Computer" width="1500" style="filter: brightness(65%)">
   <div class="w3-display-middle w3-margin-top w3-center">
-    <h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-dark-grey">Introduction to De-Anonymization</span></h1>
+    <h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-light-grey">Introduction to De-Anonymization</span></h1>
   </div>
 </header>
 
 <div class="w3-content w3-padding" style="max-width:1364px">
-  <p>With the growing prevalence of the internet and its multitude of online services, large datasets containing potentially private information are plentiful. Still, the collection and transmission of such data is often necessary or at least beneficial; for instance, technology companies may rely on user data to see what features are popular, or academic researchers may use such data to analyze human behavior.</p>
-  <p>Oftentimes, potentially sensitive data is anonymized, or de-identified, so that it can be shared with fewer privacy concerns. This involves removing directly identifying information, such as name or social security number. However, even anonymized data may still contain clues that can be used to piece back together individual identities. Sensically, this process is known as de-anonymization, or re-identification.</p>
-  <p>There are several large or well-known instances of de-anonymization. For instance, University of Texas at Austin researchers matched ratings from anonymized Netflix data with Internet Movie Database rankings to find out who many of the Netflix accounts belonged to.</p>
-  <p>Meanwhile, AOL released a huge dataset of search queries by user ID, and by simply looking at searches for particular locations and names, it’s not difficult to match IDs with individuals.</p>
-  <p>Even without using other datasets for comparison or relying on heavily personal queries, it’s often possible to narrow in on individuals using seemingly innocuous details. Harvard’s Latanya Sweeney found that about half of the population of the U.S. is identifiable just by gender, date of birth, and municipality of residence.</p>
+  <h1>An introduction to the problem of data de-anonymization and its privacy implications</h1>
 </div>
+
+<div class="snapper">
+  <div class="row">
+    <div class="column left">
+      <h2>Why Collect and Publish Data?</h2>
+      <p>With the growing prevalence of the internet and its multitude of online services, large datasets containing potentially private information are plentiful.</p>
+      <p>Still, the collection and transmission of such data is often necessary or at least beneficial.</p>
+      <p>For instance, technology companies may rely on user data to see what features are popular, or academic researchers may use such data to analyze human behavior.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Party</th>
+        </tr>
+        <tr>
+          <td>Stacy Smith</td>
+          <td>stacysmith@hotmail.com</td>
+          <td>68</td>
+          <td>Bentonville, AR</td>
+          <td>Republican</td>
+        </tr>
+        <tr>
+          <td>Luisa Reynolds</td>
+          <td>lreyrey@gmail.com</td>
+          <td>20</td>
+          <td>Washington, DC</td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td>Johnny Chen</td>
+          <td>jchen1990@gmail.com</td>
+          <td>32</td>
+          <td>Los Angeles, CA</td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td>Taylor Diaz</td>
+          <td>taylormdiaz@yahoo.com</td>
+          <td>28</td>
+          <td>Boston, MA</td>
+          <td>Independent</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <h2>Anonymizing Data</h2>
+      <p>Oftentimes, potentially sensitive data is anonymized, or de-identified, so that it can be shared with fewer privacy concerns.</p>
+      <p>This involves removing directly identifying information, such as name or email.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Party</th>
+        </tr>
+        <tr>
+          <td><mark class="black">Stacy Smith</mark></td>
+          <td><mark class="black">stacysmith@hotmail.com</mark></td>
+          <td>68</td>
+          <td>Bentonville, AR</td>
+          <td>Republican</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Luisa Reynolds</mark></td>
+          <td><mark class="black">lreyrey@gmail.com</mark></td>
+          <td>20</td>
+          <td>Washington, DC</td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Johnny Chen</mark></td>
+          <td><mark class="black">jchen1990@gmail.com</mark></td>
+          <td>32</td>
+          <td>Los Angeles, CA</td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Taylor Diaz</mark></td>
+          <td><mark class="black">taylormdiaz@yahoo.com</mark></td>
+          <td>28</td>
+          <td>Boston, MA</td>
+          <td>Independent</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <h2>De-Anonymizing Data</h2>
+      <p>However, even anonymized data may still contain clues that can be used to piece back together individual identities.</p>
+      <p>Sensically, this process is known as de-anonymization, or re-identification.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Party</th>
+        </tr>
+        <tr>
+          <td><mark>Stacy Smith</mark></td>
+          <td><mark>stacysmith@hotmail.com</mark></td>
+          <td>68</td>
+          <td>Bentonville, AR</td>
+          <td>Republican</td>
+        </tr>
+        <tr>
+          <td><mark>Luisa Reynolds</mark></td>
+          <td><mark>lreyrey@gmail.com</mark></td>
+          <td>20</td>
+          <td>Washington, DC</td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td><mark>Johnny Chen</mark></td>
+          <td><mark>jchen1990@gmail.com</mark></td>
+          <td>32</td>
+          <td>Los Angeles, CA</td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td><mark>Taylor Diaz</mark></td>
+          <td><mark>taylormdiaz@yahoo.com</mark></td>
+          <td>28</td>
+          <td>Boston, MA</td>
+          <td>Independent</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <h2>Matching Datasets</h2>
+      <p>There are several large or well-known instances of de-anonymization.</p>
+      <p>For instance, University of Texas at Austin researchers matched ratings from anonymized Netflix data with Internet Movie Database rankings to find out who many of the Netflix accounts belonged to.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th colspan="6">Netflix</th>
+          <th colspan="4">IMDB</th>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Favorite Movie</th>
+          <th>Rating</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Favorite Movie</th>
+          <th>Rating</th>
+        </tr>
+        <tr>
+          <td><mark class="black">Stacy Smith</mark></td>
+          <td><mark class="black">stacysmith@hotmail.com</mark></td>
+          <td>68</td>
+          <td>Bentonville, AR</td>
+          <td>The Matrix</td>
+          <td>4.7</td>
+          <td>Stacy Smith</td>
+          <td>stacysmith@hotmail.com</td>
+          <td>The Matrix</td>
+          <td>4.7</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Luisa Reynolds</mark></td>
+          <td><mark class="black">lreyrey@gmail.com</mark></td>
+          <td>20</td>
+          <td>Washington, DC</td>
+          <td>Your Name</td>
+          <td>5.0</td>
+          <td>Luisa Reynolds</td>
+          <td>lreyrey@gmail.com</td>
+          <td>Your Name</td>
+          <td>5.0</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Johnny Chen</mark></td>
+          <td><mark class="black">jchen1990@gmail.com</mark></td>
+          <td>32</td>
+          <td>Los Angeles, CA</td>
+          <td>The Sound of Music</td>
+          <td>4.2</td>
+          <td>Johnny Chen</td>
+          <td>jchen1990@gmail.com</td>
+          <td>The Sound of Music</td>
+          <td>4.2</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Taylor Diaz</mark></td>
+          <td><mark class="black">taylormdiaz@yahoo.com</mark></td>
+          <td>28</td>
+          <td>Boston, MA</td>
+          <td>The Theory of Everything</td>
+          <td>4.6</td>
+          <td>Taylor Diaz</td>
+          <td>taylormdiaz@yahoo.com</td>
+          <td>The Theory of Everything</td>
+          <td>4.6</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <h2>Using Search Information</h2>
+      <p>Meanwhile, AOL released a huge dataset of search queries by user ID, and by simply looking at searches for particular locations and names, it’s not difficult to match IDs with individuals.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>City</th>
+          <th colspan="2">Searches</th>
+        </tr>
+        <tr>
+          <td><mark class="black">Stacy Smith</mark></td>
+          <td><mark class="black">stacysmith@hotmail.com</mark></td>
+          <td><mark class="black">Bentonville, AR</mark></td>
+          <td>polling places in bentonville</td>
+          <td>stacy smith credit report</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Luisa Reynolds</mark></td>
+          <td><mark class="black">lreyrey@gmail.com</mark></td>
+          <td><mark class="black">Washington, DC</mark></td>
+          <td>Things to do in DC?</td>
+          <td>Tim Reynolds cheating</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Johnny Chen</mark></td>
+          <td><mark class="black">jchen1990@gmail.com</mark></td>
+          <td><mark class="black">Los Angeles, CA</mark></td>
+          <td>lakers game time</td>
+          <td>lakers football or basketball?</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Taylor Diaz</mark></td>
+          <td><mark class="black">taylormdiaz@yahoo.com</mark></td>
+          <td><mark class="black">Boston, MA</mark></td>
+          <td>libertarian candidate 2020</td>
+          <td>boston libertarians</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <h2>Using Demographic Information</h2>
+      <p>Even without using other datasets for comparison or relying on heavily personal queries, it’s often possible to narrow in on individuals using seemingly innocuous details.</p>
+      <p>Harvard’s Latanya Sweeney found that about half of the population of the U.S. is identifiable just by gender, date of birth, and municipality of residence.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Date of Birth</th>
+          <th>City</th>
+          <th>Number of People</th>
+        </tr>
+        <tr>
+          <td><mark class="black">Stacy Smith</mark></td>
+          <td>Female</td>
+          <td>February 17, 1953</td>
+          <td>Bentonville, AR</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Luisa Reynolds</mark></td>
+          <td>Female</td>
+          <td>November 1, 2001</td>
+          <td>Washington, DC</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Johnny Chen</mark></td>
+          <td>Male</td>
+          <td>March 27, 1989</td>
+          <td>Los Angeles, CA</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td><mark class="black">Taylor Diaz</mark></td>
+          <td>Male</td>
+          <td>July 8, 1993</td>
+          <td>Boston, MA</td>
+          <td>1</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="column left">
+      <h2>Being Aware</h2>
+      <p>Even if your data will be anonymized, be careful when giving out personal information!</p>
+      <p>Large institutions can't always perfectly prevent de-anonymization, much less individual's surveys.</p>
+      <p>Think about what information you would and wouldn't be okay with putting out there if it were to be traced back to you.</p>
+    </div>
+    <div class="column right">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Party</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>68</td>
+          <td>Bentonville, AR</td>
+          <td>Republican</td>
+        </tr>
+        <tr>
+          <td>Luisa Reynolds</td>
+          <td>lreyrey@gmail.com</td>
+          <td>20</td>
+          <td>Don't want to answer</td>
+          <td>Don't want to answer</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>32</td>
+          <td></td>
+          <td>Democrat</td>
+        </tr>
+        <tr>
+          <td>Taylor Diaz</td>
+          <td>N/A</td>
+          <td>28</td>
+          <td>Boston, MA</td>
+          <td>N/A</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+  
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
   <p>Created by Meiling Thompson and Michael Yin, Harvard College '22, for <a href="http://www.eecs.harvard.edu/~waldo/">Jim Waldo</a>'s CS 105: Privacy and Technology.</p>
